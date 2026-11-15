@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me - Muhammad Aliff</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">MyPortfolio</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-section">
+            <h1>Contact Me</h1>
+            <p>Have a question, internship opportunity, or project proposal? Send me a message below or connect via email and LinkedIn!</p>
+
+            <form id="contactForm">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" placeholder="Subject of your message" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+
+            <article class="contact-info" style="margin-top: 30px;">
+                <h3>Direct Links</h3>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:aliff@example.com">aliff@example.com</a></li>
+                    <li><strong>LinkedIn:</strong> <a href="https://linkedin.com" target="_blank">linkedin.com/in/muhammad-aliff</a></li>
+                    <li><strong>Location:</strong> Melaka / Pekan, Pahang, Malaysia</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span class="current-year">2026</span> Muhammad Aliff. All Rights Reserved. | <a href="mailto:aliff@example.com" class="footer-link">Email Me</a></p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
