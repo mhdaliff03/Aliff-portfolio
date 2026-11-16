@@ -18,10 +18,10 @@
    2. DARK MODE STYLES
    ========================================== */
 body.dark-mode {
-    --bg-light: #0f172a;           /* Biru Gelap Korporat */
-    --text-main: #f1f5f9;          /* Teks Putih Lembut */
-    --text-muted: #cbd5e1;         
-    --white: #1e293b;              
+    --bg-light: #0f172a;
+    --text-main: #f1f5f9;
+    --text-muted: #cbd5e1;
+    --white: #1e293b;
     --card-bg: rgba(30, 41, 59, 0.95);
     --border-color: #334155;
     --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
@@ -88,7 +88,7 @@ main {
 }
 
 /* ==========================================
-   4. HEADER & NAVIGATION BAR
+   4. HEADER & NAVIGATION BAR (KEMAS & TETAP)
    ========================================== */
 header {
     background-color: var(--dark-teal);
@@ -106,8 +106,6 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
-    z-index: 100000;
 }
 
 .logo, header .logo {
@@ -117,13 +115,17 @@ header {
     letter-spacing: 0.5px;
 }
 
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
 .nav-links, header ul {
     list-style: none;
     display: flex;
     gap: 12px;
     align-items: center;
-    position: relative;
-    z-index: 100001;
 }
 
 .nav-links li a, header ul li a {
@@ -132,8 +134,6 @@ header {
     font-weight: 500;
     padding: 8px 16px;
     border-radius: 6px;
-    position: relative;
-    z-index: 100002;
     transition: all 0.3s ease;
 }
 
@@ -145,21 +145,24 @@ header ul li a.active {
     color: var(--white);
 }
 
-/* Butang Tukar Tema (Dark/Light Mode Button) */
 .theme-toggle-btn {
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     color: var(--white);
-    font-size: 1.1rem;
-    padding: 6px 12px;
+    font-size: 1rem;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
 }
 
 .theme-toggle-btn:hover {
-    background: rgba(255, 255, 255, 0.35);
-    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.08);
 }
 
 /* ==========================================
@@ -529,6 +532,11 @@ footer a {
     .navbar, header nav {
         flex-direction: column;
         gap: 12px;
+    }
+
+    .nav-right {
+        flex-direction: column;
+        gap: 10px;
     }
 
     .nav-links, header ul {
