@@ -90,6 +90,9 @@ main {
 /* ==========================================
    4. HEADER & NAVIGATION BAR (KEMAS & TETAP)
    ========================================== */
+/* ==========================================
+   HEADER & NAVIGATION BAR (TETAP & TIDAK BERGERAK)
+   ========================================== */
 header {
     background-color: var(--dark-teal);
     color: var(--white);
@@ -97,10 +100,12 @@ header {
     top: 0;
     z-index: 99999;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    width: 100%;
 }
 
 .navbar, header nav {
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
     padding: 15px 20px;
     display: flex;
@@ -113,27 +118,31 @@ header {
     font-weight: 700;
     color: var(--white);
     letter-spacing: 0.5px;
+    flex-shrink: 0;
 }
 
+/* Kumpulan menu di sebelah kanan */
 .nav-right {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 25px;
 }
 
 .nav-links, header ul {
     list-style: none;
     display: flex;
-    gap: 12px;
+    gap: 8px;
     align-items: center;
 }
 
+/* Tetapkan saiz tetap untuk setiap item menu supaya tidak berganjak */
 .nav-links li a, header ul li a {
     color: #e2e8f0;
     text-decoration: none;
     font-weight: 500;
-    padding: 8px 16px;
+    padding: 8px 14px;
     border-radius: 6px;
+    text-align: center;
     transition: all 0.3s ease;
 }
 
@@ -157,6 +166,7 @@ header ul li a.active {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
     transition: all 0.3s ease;
 }
 
