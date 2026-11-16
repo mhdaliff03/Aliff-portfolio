@@ -1,17 +1,17 @@
 /* ==========================================
-   1. WARNA KORPORAT UMPSA & ROOT SETTINGS
+   1. WARNA HIJAU/TEAL UMPSA & ROOT SETTINGS
    ========================================== */
 :root {
-    --primary-color: #008080;      /* Teal Korporat UMPSA */
+    --primary-color: #008080;      /* Teal UMPSA */
     --primary-hover: #006666;      /* Teal Gelap */
-    --accent-gold: #f59e0b;        /* Emas UMPSA */
-    --dark-navy: #0f172a;          /* Biru Gelap Header & Footer */
-    --text-main: #1e293b;          /* Teks Gelap */
-    --text-muted: #475569;         /* Teks Kelabu Lembut */
-    --bg-light: #f1f5f9;           /* Latar Belakang Lembut */
+    --accent-gold: #f59e0b;        
+    --dark-navy: #006666;          /* Ditukar kepada Hijau/Teal UMPSA untuk Header & Footer */
+    --text-main: #1e293b;          
+    --text-muted: #475569;         
+    --bg-light: #f1f5f9;           
     --white: #ffffff;
-    --border-color: #e2e8f0;
-    --shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    --border-color: #cbd5e1;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
 /* ==========================================
@@ -42,7 +42,7 @@ main {
 }
 
 /* ==========================================
-   3. HEADER & NAVIGATION BAR (Semua Halaman)
+   3. HEADER & NAVIGATION BAR (Hijau UMPSA)
    ========================================== */
 header {
     background-color: var(--dark-navy);
@@ -77,7 +77,7 @@ header {
 }
 
 .nav-links li a, header ul li a {
-    color: #cbd5e1;
+    color: #e2e8f0;
     text-decoration: none;
     font-weight: 500;
     padding: 8px 14px;
@@ -89,15 +89,33 @@ header {
 .nav-links li a.active,
 header ul li a:hover,
 header ul li a.active {
-    background-color: var(--primary-color);
+    background-color: #004d4d; /* Hijau gelap eksklusif untuk tab aktif */
     color: var(--white);
 }
 
 /* ==========================================
-   4. KAD KANDUNGAN UMUM (About, Skills, Projects, Contact)
+   4. KAD KANDUNGAN & BACKGROUND LOGO UMPSA TERANG (Semua Halaman)
    ========================================== */
+body, main {
+    position: relative;
+}
+
+/* Watermark Logo UMPSA yang lebih terang (opacity 0.15) pada semua halaman */
+main::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url('../images/LOGO UMPSA.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 450px;
+    opacity: 0.15; /* Dinaikkan supaya lebih jelas dan terang */
+    pointer-events: none;
+    z-index: -1;
+}
+
 section {
-    background: var(--white);
+    background: rgba(255, 255, 255, 0.95); /* Sedikit telus supaya logo belakang nampak lembut merentasi halaman */
     padding: 35px;
     border-radius: 12px;
     box-shadow: var(--shadow);
@@ -107,7 +125,7 @@ section {
 
 section h1 {
     font-size: 2rem;
-    color: var(--dark-navy);
+    color: #004d4d;
     margin-bottom: 15px;
     border-bottom: 2px solid var(--border-color);
     padding-bottom: 10px;
@@ -136,7 +154,7 @@ section ul li {
 }
 
 /* ==========================================
-   5. HOME PAGE (HERO SECTION + WATERMARK LEMBUT)
+   5. HOME PAGE (HERO SECTION)
    ========================================== */
 .hero-section {
     position: relative;
@@ -145,27 +163,7 @@ section ul li {
     justify-content: space-between;
     gap: 40px;
     padding: 50px 40px;
-    overflow: hidden;
-    background: var(--white);
-}
-
-/* Watermark Logo UMPSA yang sangat lembut di belakang */
-.hero-section::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url('../images/LOGO UMPSA.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 280px;
-    opacity: 0.06; /* Sangat lembut supaya teks mudah dibaca */
-    pointer-events: none;
-    z-index: 0;
-}
-
-.hero-content, .hero-image {
-    position: relative;
-    z-index: 1;
+    background: rgba(255, 255, 255, 0.96);
 }
 
 .hero-content {
@@ -197,7 +195,7 @@ section ul li {
     object-fit: cover;
     border-radius: 50%;
     border: 5px solid var(--primary-color);
-    box-shadow: 0 8px 20px rgba(0, 128, 128, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 128, 128, 0.3);
 }
 
 /* ==========================================
@@ -229,11 +227,11 @@ section ul li {
 }
 
 .btn-secondary {
-    background-color: var(--dark-navy);
+    background-color: #004d4d;
 }
 
 .btn-secondary:hover {
-    background-color: #1e293b;
+    background-color: #003333;
 }
 
 /* ==========================================
@@ -260,18 +258,19 @@ td {
 }
 
 tr:nth-child(even) {
-    background-color: #f8fafc;
+    background-color: rgba(0, 128, 128, 0.03);
 }
 
 /* ==========================================
-   8. PROJECTS PAGE (Gambar & Kad Projek)
+   8. PROJECTS PAGE (Kad Projek)
    ========================================== */
 article {
-    background: #f8fafc;
+    background: #ffffff;
     border: 1px solid var(--border-color);
     border-radius: 10px;
     padding: 25px;
     margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
 article img {
@@ -286,7 +285,7 @@ article img {
 }
 
 /* ==========================================
-   9. CONTACT FORM (Borang Tersusun Menegak)
+   9. CONTACT FORM
    ========================================== */
 form {
     display: flex;
@@ -298,7 +297,7 @@ form {
 
 form label {
     font-weight: 600;
-    color: var(--dark-navy);
+    color: #004d4d;
     margin-bottom: -10px;
 }
 
@@ -310,7 +309,7 @@ form textarea {
     border-radius: 6px;
     font-family: inherit;
     font-size: 1rem;
-    background-color: #f8fafc;
+    background-color: #ffffff;
     transition: border-color 0.3s ease;
 }
 
@@ -318,7 +317,7 @@ form input:focus,
 form textarea:focus {
     outline: none;
     border-color: var(--primary-color);
-    background-color: var(--white);
+    box-shadow: 0 0 0 3px rgba(0, 128, 128, 0.15);
 }
 
 form textarea {
@@ -327,18 +326,18 @@ form textarea {
 }
 
 /* ==========================================
-   10. FOOTER & BUTANG SCROLL TO TOP
+   10. FOOTER & SCROLL TO TOP
    ========================================== */
 footer {
     background-color: var(--dark-navy);
-    color: #cbd5e1;
+    color: #e2e8f0;
     text-align: center;
     padding: 20px;
     margin-top: auto;
 }
 
 footer a {
-    color: #38bdf8;
+    color: #a5f3fc;
     text-decoration: none;
     font-weight: 600;
 }
@@ -362,7 +361,7 @@ footer a:hover {
 }
 
 /* ==========================================
-   11. RESPONSIVE (Tablet & Telefon Bimbit)
+   11. RESPONSIVE (Mobile & Tablet)
    ========================================== */
 @media (max-width: 768px) {
     .navbar, header nav {
