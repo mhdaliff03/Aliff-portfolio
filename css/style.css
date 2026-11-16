@@ -1,19 +1,21 @@
 /* ==========================================
-   1. CSS VARIABLES & ROOT SETTINGS
+   1. WARNA KORPORAT UMPSA & ROOT SETTINGS
    ========================================== */
 :root {
     --primary-color: #008080;      /* Teal Korporat UMPSA */
-    --primary-hover: #006666;      /* Teal Gelap untuk kesan hover */
-    --accent-gold: #f59e0b;        /* Kuning Emas Aksen */
-    --dark-navy: #0f172a;          /* Biru Gelap untuk Header & Footer */
-    --text-color: #334155;         /* Warna Teks Utama */
-    --bg-light: #f8fafc;           /* Latar Belakang Cerah */
-    --white: #ffffff;              /* Putih Bersih */
-    --border-color: #e2e8f0;       /* Warna Garisan Sempadan */
+    --primary-hover: #006666;      /* Teal Gelap */
+    --accent-gold: #f59e0b;        /* Emas UMPSA */
+    --dark-navy: #0f172a;          /* Biru Gelap Header & Footer */
+    --text-main: #1e293b;          /* Teks Gelap */
+    --text-muted: #475569;         /* Teks Kelabu Lembut */
+    --bg-light: #f1f5f9;           /* Latar Belakang Lembut */
+    --white: #ffffff;
+    --border-color: #e2e8f0;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
 }
 
 /* ==========================================
-   2. GLOBAL STYLES & RESET
+   2. RESET & SUSUN ATUR ASAS
    ========================================== */
 * {
     margin: 0;
@@ -24,7 +26,7 @@
 body {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--bg-light);
-    color: var(--text-color);
+    color: var(--text-main);
     line-height: 1.6;
     display: flex;
     flex-direction: column;
@@ -33,10 +35,14 @@ body {
 
 main {
     flex: 1;
+    width: 100%;
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
 }
 
 /* ==========================================
-   3. HEADER & NAVIGATION BAR (Flexbox)
+   3. HEADER & NAVIGATION BAR (Semua Halaman)
    ========================================== */
 header {
     background-color: var(--dark-navy);
@@ -44,11 +50,11 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 
-.navbar {
-    max-width: 1200px;
+.navbar, header nav {
+    max-width: 1100px;
     margin: 0 auto;
     padding: 15px 20px;
     display: flex;
@@ -56,50 +62,110 @@ header {
     align-items: center;
 }
 
-.logo {
+.logo, header .logo {
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: 700;
     color: var(--white);
     letter-spacing: 0.5px;
 }
 
-.nav-links {
+.nav-links, header ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 15px;
+    align-items: center;
 }
 
-.nav-links li a {
-    color: var(--white);
+.nav-links li a, header ul li a {
+    color: #cbd5e1;
     text-decoration: none;
     font-weight: 500;
-    padding: 6px 12px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
 }
 
 .nav-links li a:hover,
-.nav-links li a.active {
+.nav-links li a.active,
+header ul li a:hover,
+header ul li a.active {
     background-color: var(--primary-color);
     color: var(--white);
 }
 
 /* ==========================================
-   4. HERO SECTION (Home Page Layout)
+   4. KAD KANDUNGAN UMUM (About, Skills, Projects, Contact)
+   ========================================== */
+section {
+    background: var(--white);
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+    border-top: 4px solid var(--primary-color);
+}
+
+section h1 {
+    font-size: 2rem;
+    color: var(--dark-navy);
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+section h2 {
+    font-size: 1.35rem;
+    color: var(--primary-color);
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+section p {
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
+section ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+section ul li {
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+/* ==========================================
+   5. HOME PAGE (HERO SECTION + WATERMARK LEMBUT)
    ========================================== */
 .hero-section {
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 40px 20px;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 40px;
-    /* Watermark latar belakang logo UMPSA */
+    padding: 50px 40px;
+    overflow: hidden;
+    background: var(--white);
+}
+
+/* Watermark Logo UMPSA yang sangat lembut di belakang */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
     background-image: url('../images/LOGO UMPSA.jpg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
+    background-size: 280px;
+    opacity: 0.06; /* Sangat lembut supaya teks mudah dibaca */
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero-content, .hero-image {
+    position: relative;
+    z-index: 1;
 }
 
 .hero-content {
@@ -107,204 +173,232 @@ header {
 }
 
 .hero-content h1 {
-    font-size: 2.5rem;
-    color: var(--dark-navy);
+    font-size: 2.6rem;
+    border-bottom: none;
+    padding-bottom: 0;
     margin-bottom: 5px;
 }
 
 .hero-content h2 {
     font-size: 1.4rem;
-    color: var(--primary-color);
-    margin-bottom: 10px;
+    margin-top: 5px;
 }
 
 .tagline {
     font-size: 1.1rem;
     font-weight: 600;
-    color: #64748b;
+    color: var(--text-muted);
     margin-bottom: 15px;
 }
 
-.intro-desc {
-    font-size: 1rem;
-    margin-bottom: 25px;
-    color: var(--text-color);
+.hero-image img {
+    width: 240px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 8px 20px rgba(0, 128, 128, 0.2);
 }
 
 /* ==========================================
-   5. BUTTONS & CALL TO ACTION
+   6. BUTANG (Buttons)
    ========================================== */
 .cta-buttons {
     display: flex;
     gap: 15px;
+    margin-top: 20px;
 }
 
-.btn {
+.btn, button {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 10px 22px;
     border-radius: 6px;
     text-decoration: none;
     font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.btn-primary {
+    font-size: 0.95rem;
+    border: none;
+    cursor: pointer;
     background-color: var(--primary-color);
     color: var(--white);
+    transition: all 0.3s ease;
 }
 
-.btn-primary:hover {
+.btn:hover, button:hover {
     background-color: var(--primary-hover);
     transform: translateY(-2px);
 }
 
 .btn-secondary {
     background-color: var(--dark-navy);
-    color: var(--white);
 }
 
 .btn-secondary:hover {
     background-color: #1e293b;
-    transform: translateY(-2px);
 }
 
 /* ==========================================
-   6. HERO IMAGE & PROFILE PHOTO
+   7. JADUAL (Quick Highlights)
    ========================================== */
-.hero-image {
-    flex-shrink: 0;
-}
-
-.hero-image img {
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 5px solid var(--white);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-/* ==========================================
-   7. QUICK HIGHLIGHTS TABLE SECTION
-   ========================================== */
-.highlights-section {
-    padding: 20px 20px 40px 20px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.highlights-table {
+table {
     width: 100%;
     border-collapse: collapse;
-    background: var(--white);
+    margin-top: 15px;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
-.highlights-table th {
-    background-color: #f1f5f9;
-    color: var(--dark-navy);
+th {
+    background-color: var(--primary-color);
+    color: var(--white);
     text-align: left;
     padding: 14px 18px;
-    font-weight: 600;
-    border-bottom: 2px solid var(--border-color);
 }
 
-.highlights-table td {
+td {
     padding: 14px 18px;
     border-bottom: 1px solid var(--border-color);
-    color: var(--text-color);
 }
 
-.highlights-table tr:last-child td {
-    border-bottom: none;
+tr:nth-child(even) {
+    background-color: #f8fafc;
 }
 
 /* ==========================================
-   8. FOOTER & SCROLL-TO-TOP BUTTON
+   8. PROJECTS PAGE (Gambar & Kad Projek)
+   ========================================== */
+article {
+    background: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+article img {
+    width: 100%;
+    max-width: 550px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: block;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================
+   9. CONTACT FORM (Borang Tersusun Menegak)
+   ========================================== */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin-top: 15px;
+}
+
+form label {
+    font-weight: 600;
+    color: var(--dark-navy);
+    margin-bottom: -10px;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: #f8fafc;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: var(--white);
+}
+
+form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* ==========================================
+   10. FOOTER & BUTANG SCROLL TO TOP
    ========================================== */
 footer {
     background-color: var(--dark-navy);
-    color: var(--white);
+    color: #cbd5e1;
     text-align: center;
     padding: 20px;
     margin-top: auto;
-    position: relative;
 }
 
-footer p {
-    font-size: 0.9rem;
+footer a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
 }
 
-.top-btn {
+footer a:hover {
+    text-decoration: underline;
+}
+
+.top-btn, .scroll-top-btn {
     position: fixed;
     bottom: 20px;
     right: 20px;
     background-color: var(--primary-color);
     color: var(--white);
-    border: none;
-    padding: 10px 15px;
+    padding: 10px 16px;
     border-radius: 6px;
-    cursor: pointer;
     font-weight: bold;
-    display: none; /* Dikawal oleh JavaScript */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease;
+    display: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
     z-index: 999;
 }
 
-.top-btn:hover {
-    background-color: var(--primary-hover);
-}
-
 /* ==========================================
-   9. RESPONSIVE MEDIA QUERIES (Mobile & Tablet)
+   11. RESPONSIVE (Tablet & Telefon Bimbit)
    ========================================== */
-
-/* Tablet & Peranti Sederhana (<= 768px) */
 @media (max-width: 768px) {
+    .navbar, header nav {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .nav-links, header ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+
     .hero-section {
         flex-direction: column-reverse;
         text-align: center;
-        padding: 20px;
-        gap: 20px;
+        padding: 30px 20px;
     }
 
     .cta-buttons {
-        justify-content: center;
-    }
-
-    .navbar {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .nav-links {
-        gap: 10px;
-        flex-wrap: wrap;
         justify-content: center;
     }
 
     .hero-image img {
-        width: 200px;
-        height: 200px;
+        width: 190px;
+        height: 190px;
     }
 }
 
-/* Telefon Bimbit (<= 480px) */
 @media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-
-    .hero-content h2 {
-        font-size: 1.2rem;
+    section {
+        padding: 20px;
     }
 
     .cta-buttons {
         flex-direction: column;
-        width: 100%;
     }
 
     .btn {
