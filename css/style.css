@@ -1,11 +1,11 @@
 /* ==========================================
-   1. WARNA HIJAU/TEAL UMPSA & ROOT SETTINGS
+   1. WARNA KORPORAT UMPSA & ROOT SETTINGS
    ========================================== */
 :root {
     --primary-color: #008080;      /* Teal UMPSA */
     --primary-hover: #006666;      /* Teal Gelap */
     --accent-gold: #f59e0b;        
-    --dark-navy: #006666;          /* Ditukar kepada Hijau/Teal UMPSA untuk Header & Footer */
+    --dark-navy: #006666;          /* Hijau/Teal UMPSA untuk Header & Footer */
     --text-main: #1e293b;          
     --text-muted: #475569;         
     --bg-light: #f1f5f9;           
@@ -42,7 +42,7 @@ main {
 }
 
 /* ==========================================
-   3. HEADER & NAVIGATION BAR (Hijau UMPSA)
+   3. HEADER & NAVIGATION BAR
    ========================================== */
 header {
     background-color: var(--dark-navy);
@@ -89,18 +89,18 @@ header {
 .nav-links li a.active,
 header ul li a:hover,
 header ul li a.active {
-    background-color: #004d4d; /* Hijau gelap eksklusif untuk tab aktif */
+    background-color: #004d4d;
     color: var(--white);
 }
 
 /* ==========================================
-   4. KAD KANDUNGAN & BACKGROUND LOGO UMPSA TERANG (Semua Halaman)
+   4. BACKGROUND LOGO UMPSA TERANG (Semua Halaman)
    ========================================== */
 body, main {
     position: relative;
 }
 
-/* Watermark Logo UMPSA yang lebih terang (opacity 0.15) pada semua halaman */
+/* Watermark Logo UMPSA yang lebih terang pada semua halaman */
 main::before {
     content: "";
     position: fixed;
@@ -109,13 +109,13 @@ main::before {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 450px;
-    opacity: 0.15; /* Dinaikkan supaya lebih jelas dan terang */
+    opacity: 0.15;
     pointer-events: none;
     z-index: -1;
 }
 
 section {
-    background: rgba(255, 255, 255, 0.95); /* Sedikit telus supaya logo belakang nampak lembut merentasi halaman */
+    background: rgba(255, 255, 255, 0.95);
     padding: 35px;
     border-radius: 12px;
     box-shadow: var(--shadow);
@@ -262,42 +262,10 @@ tr:nth-child(even) {
 }
 
 /* ==========================================
-   8. PROJECTS PAGE (Kad Projek)
+   8. PROJECTS PAGE (Gambar di Atas, Teks di Bawah)
    ========================================== */
 /* ==========================================
-   8. PROJECTS PAGE (Kad Projek Sebaris)
-   ========================================== */
-.projects-container, main {
-    /* Pastikan kontena projek fleksibel */
-}
-
-article {
-    background: #ffffff;
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    padding: 30px;
-    margin-bottom: 25px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    display: flex;          /* Susun gambar dan teks sebaris */
-    align-items: center;    /* Pusatkan secara menegak */
-    gap: 30px;              /* Jarak antara gambar dan teks */
-}
-
-/* Bahagian Gambar Projek (Kiri) */
-article img {
-    width: 40%;             /* Ambil 40% lebar kad */
-    min-width: 280px;
-    height: 220px;          /* Tetapkan tinggi yang seragam & kemas */
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 0;       /* Buang margin bawah lama */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-    flex-shrink: 0;
-}
-
-/* Bahagian Teks Penerangan Projek (Kanan) */
-/* ==========================================
-   PROJECTS PAGE STYLING (Gambar di Atas, Teks di Bawah)
+   8. PROJECTS PAGE (Susun Atur Melintang / Sebaris)
    ========================================== */
 article {
     background: #ffffff;
@@ -306,75 +274,66 @@ article {
     padding: 30px;
     margin-bottom: 30px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    display: flex;
-    flex-direction: column; /* Susun menegak: Gambar di atas, teks di bawah */
-    gap: 20px;
+    display: flex;          /* Susun elemen secara melintang */
+    align-items: center;    /* Pusatkan item secara menegak */
+    gap: 30px;              /* Jarak antara gambar dan lajur teks */
 }
 
-/* Gambar Projek (Diletakkan di atas dengan saiz yang kemas) */
+/* Gambar Projek (Sebelah Kiri) */
 article img {
-    width: 100%;
-    max-width: 100%;
-    height: 320px;
+    width: 38%;             /* Tetapkan lebar gambar */
+    height: 220px;
     object-fit: cover;
     border-radius: 8px;
+    flex-shrink: 0;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
-/* Bahagian Teks & Maklumat Projek di Bawah */
-/* ==========================================
-   PROJECTS GRID (3 Melintang, Gambar di Atas)
-   ========================================== */
-.projects-grid {
+/* Bahagian Maklumat Lajur Teks (Sebelah Kanan) */
+article .project-info,
+article div {
+    flex: 1;
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 kolum sebaris */
-    gap: 25px;                             /* Jarak antara kad */
-    margin-top: 20px;
+    grid-template-columns: 1.2fr 1.5fr 1fr 1.2fr 1.5fr; /* Bahagikan kepada 5 lajur melintang */
+    gap: 15px;
+    align-items: start;
 }
 
-.project-card {
-    background: #ffffff;
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    display: flex;
-    flex-direction: column;                 /* Susun menegak: Gambar atas, teks bawah */
-    justify-content: flex-start;
-    transition: transform 0.3s ease;
+/* Gaya Tajuk & Teks dalam Lajur */
+article h3 {
+    font-size: 1.15rem;
+    color: var(--dark-navy);
+    line-height: 1.3;
 }
 
-.project-card:hover {
-    transform: translateY(-5px);            /* Kesan terapung bila hove */
-}
-
-/* Gambar di atas */
-.project-card img {
-    width: 100%;
-    height: 180px;                          /* Tinggi seragam untuk semua gambar */
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-}
-
-/* Teks di bawah gambar */
-.project-info h3 {
-    font-size: 1.2rem;
-    color: var(--primary-color);
-    margin-bottom: 10px;
-}
-
-.project-info p {
-    font-size: 0.9rem;
+article p {
+    font-size: 0.88rem;
     color: var(--text-muted);
-    margin-bottom: 8px;
+    margin-bottom: 0;
+    line-height: 1.4;
 }
 
-/* Responsif untuk Tablet & Telefon (Tukar jadi 1 kolum menegak) */
-@media (max-width: 900px) {
-    .projects-grid {
-        grid-template-columns: 1fr; /* Jadi 1 kolum ke bawah pada skrin kecil */
+article p strong {
+    color: #004d4d;
+    display: block;
+    margin-bottom: 3px;
+}
+
+/* Responsif untuk Mobile (Tukar jadi menegak jika skrin kecil) */
+@media (max-width: 992px) {
+    article {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    article img {
+        width: 100%;
+        height: 220px;
+    }
+    article .project-info,
+    article div {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 }
 
