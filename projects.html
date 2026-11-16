@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - Muhammad Aliff</title>
+    <title>Projects - Muhammad Aliff Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+    <!-- Header & Navigation Bar -->
     <header>
-        <nav>
+        <nav class="navbar">
             <div class="logo">MyPortfolio</div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -20,42 +22,53 @@
         </nav>
     </header>
 
+    <!-- Main Content -->
     <main>
-        <section class="projects-section">
+        <section>
             <h1>My Engineering & Web Projects</h1>
-            <div class="project-grid">
-                <article class="project-card">
-                    <img src="images/Smart Home Automation.jpg" alt="Smart Home Automation System">
+
+            <!-- Projek 1 -->
+            <article class="project-row-card">
+                <img src="images/Smart Home Automation.jpg" alt="Smart Home Automation">
+                <div class="project-columns">
                     <h3>Smart Home Automation</h3>
                     <p><strong>Problem Statement:</strong> High energy wastage due to manual switching of home appliances.</p>
                     <p><strong>Role:</strong> Hardware & IoT Developer</p>
                     <p><strong>Tools Used:</strong> Arduino IDE, ESP32, Relay Module, Sensors</p>
                     <p><strong>Outcome:</strong> Successfully automated home lighting and security monitoring remotely.</p>
-                </article>
+                </div>
+            </article>
 
-                <article class="project-card">
-                    <img src="images/coveryor.jpg" alt="PLC Conveyor Sorting System">
+            <!-- Projek 2 -->
+            <article class="project-row-card">
+                <img src="images/coveryor.jpg" alt="PLC Conveyor Sorting System">
+                <div class="project-columns">
                     <h3>PLC Conveyor Sorting System</h3>
                     <p><strong>Problem Statement:</strong> Manual item sorting in factories is slow and prone to human error.</p>
                     <p><strong>Role:</strong> PLC Programmer & Wiring Technician</p>
                     <p><strong>Tools Used:</strong> CX-Programmer, Omron PLC, Colour Sensors, Pneumatic Actuators</p>
                     <p><strong>Outcome:</strong> Automated sorting process with high accuracy and faster cycle time.</p>
-                </article>
+                </div>
+            </article>
 
-                <article class="project-card">
-                    <img src="images/calculator.jpg" alt="Web-Based Engineering Calculator">
-                    <h3>Web-Based Calculator</h3>
-                    <p><strong>Problem Statement:</strong> Need for a lightweight, accessible browser tool for quick calculations.</p>
+            <!-- Projek 3 -->
+            <article class="project-row-card">
+                <img src="images/calculator.jpg" alt="Interactive Web Calculator">
+                <div class="project-columns">
+                    <h3>Interactive Web Calculator</h3>
+                    <p><strong>Problem Statement:</strong> Need for a fast, browser-based mathematical tool for quick calculations.</p>
                     <p><strong>Role:</strong> Front-End Web Developer</p>
-                    <p><strong>Tools Used:</strong> HTML5, CSS3, Vanilla JavaScript, VS Code</p>
-                    <p><strong>Outcome:</strong> Built a responsive, user-friendly interactive calculator web app.</p>
-                </article>
-            </div>
+                    <p><strong>Tools Used:</strong> HTML5, CSS3, Vanilla JavaScript</p>
+                    <p><strong>Outcome:</strong> Built a responsive calculator with clean UI and real-time expression evaluation.</p>
+                </div>
+            </article>
+
         </section>
     </main>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; <span class="current-year">2026</span> Muhammad Aliff. All Rights Reserved. | <a href="mailto:muhammadaliffmohdburhan@gmail.com" class="footer-link">Email Me</a></p>
+        <p>&copy; <span class="current-year">2026</span> Muhammad Aliff. All Rights Reserved. | <a href="mailto:muhammadaliffmohdrburhan@gmail.com">Email Me</a></p>
     </footer>
 
     <script src="js/script.js"></script>

@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - Muhammad Aliff Portfolio</title>
-    <!-- Pautan ke External CSS -->
+    <title>Home - Muhammad Aliff Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- Header & Navigation Bar (Home dipautkan ke index.html) -->
+    <!-- Header & Navigation Bar -->
     <header>
         <nav class="navbar">
             <div class="logo">MyPortfolio</div>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="about.html">About Me</a></li>
                 <li><a href="skills.html">Skills</a></li>
-                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="projects.html">Projects</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -25,54 +24,55 @@
 
     <!-- Main Content -->
     <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 id="greeting">Good Evening!</h1>
+                <p id="malaysia-datetime" style="font-weight: 600; color: #008080; margin-bottom: 10px;"></p>
+                <h2 style="font-size: 1.5rem; color: #074c4f; margin-bottom: 15px;">I am Muhammad Aliff</h2>
+                <p class="tagline">Aspiring Industrial Electronics Technologist</p>
+                <p class="intro-desc">
+                    Welcome to my professional portfolio website showcasing my engineering skills, academic projects, and industrial journey at UMPSA.
+                </p>
+                <div class="cta-buttons">
+                    <a href="projects.html" class="btn btn-primary">View My Work</a>
+                    <a href="docs/resume.pdf" class="btn btn-secondary" target="_blank">Download CV</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="images/profile.jpg" alt="Muhammad Aliff Profile Photo">
+            </div>
+        </section>
+
+        <!-- Quick Highlights Section -->
         <section>
-            <h1>My Engineering & Web Projects</h1>
-
-            <!-- Projek 1 -->
-            <article class="project-row-card">
-                <img src="images/Smart Home Automation.jpg" alt="Smart Home Automation">
-                <div class="project-columns">
-                    <h3>Smart Home Automation</h3>
-                    <p><strong>Problem Statement:</strong> High energy wastage due to manual switching of home appliances.</p>
-                    <p><strong>Role:</strong> Hardware & IoT Developer</p>
-                    <p><strong>Tools Used:</strong> Arduino IDE, ESP32, Relay Module, Sensors</p>
-                    <p><strong>Outcome:</strong> Successfully automated home lighting and security monitoring remotely.</p>
-                </div>
-            </article>
-
-            <!-- Projek 2 -->
-            <article class="project-row-card">
-                <img src="images/coveryor.jpg" alt="PLC Conveyor Sorting System">
-                <div class="project-columns">
-                    <h3>PLC Conveyor Sorting System</h3>
-                    <p><strong>Problem Statement:</strong> Manual item sorting in factories is slow and prone to human error.</p>
-                    <p><strong>Role:</strong> PLC Programmer & Wiring Technician</p>
-                    <p><strong>Tools Used:</strong> CX-Programmer, Omron PLC, Colour Sensors, Pneumatic Actuators</p>
-                    <p><strong>Outcome:</strong> Automated sorting process with high accuracy and faster cycle time.</p>
-                </div>
-            </article>
-
-            <!-- Projek 3 -->
-            <article class="project-row-card">
-                <img src="images/calculator.jpg" alt="Interactive Web Calculator">
-                <div class="project-columns">
-                    <h3>Interactive Web Calculator</h3>
-                    <p><strong>Problem Statement:</strong> Need for a fast, browser-based mathematical tool for quick calculations.</p>
-                    <p><strong>Role:</strong> Front-End Web Developer</p>
-                    <p><strong>Tools Used:</strong> HTML5, CSS3, Vanilla JavaScript</p>
-                    <p><strong>Outcome:</strong> Built a responsive calculator with clean UI and real-time expression evaluation.</p>
-                </div>
-            </article>
-
+            <h2 style="margin-bottom: 20px; color: #074c4f;">Quick Highlights</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-weight: 500;">Projects Completed</td>
+                        <td>3+ Major Engineering & Web Projects</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 500;">Certificates & Training</td>
+                        <td>PLC Programming, Automation & Safety Certified</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
     </main>
 
     <!-- Footer -->
     <footer>
         <p>&copy; <span class="current-year">2026</span> Muhammad Aliff. All Rights Reserved. | <a href="mailto:muhammadaliffmohdrburhan@gmail.com">Email Me</a></p>
+        <button id="scrollTopBtn" class="top-btn">&#8593; Top</button>
     </footer>
 
-    <!-- Pautan ke External JavaScript -->
     <script src="js/script.js"></script>
 </body>
 </html>

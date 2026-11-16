@@ -4,12 +4,12 @@
 :root {
     --primary-color: #008080;      /* Teal UMPSA */
     --primary-hover: #006666;      /* Teal Gelap */
-    --dark-teal: #0b666a;          /* Hijau Teal Header seperti dalam gambar */
+    --dark-teal: #006666;          /* Hijau Teal Header & Footer */
     --text-main: #1e293b;          
     --text-muted: #475569;         
     --bg-light: #f1f5f9;           
     --white: #ffffff;
-    --border-color: #e2e8f0;
+    --border-color: #cbd5e1;
     --shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
 }
 
@@ -35,22 +35,23 @@ body {
 main {
     flex: 1;
     width: 100%;
-    max-width: 1200px; /* Lebar sedikit luas supaya 5 lajur teks projek nampak lega & sebiji seperti gambar */
+    max-width: 1200px;
     margin: 30px auto;
     padding: 0 20px;
     position: relative;
+    z-index: 1; /* Pastikan kandungan utama berada di bawah header */
 }
 
 /* ==========================================
-   3. HEADER & NAVIGATION BAR
+   3. HEADER & NAVIGATION BAR (DIAMANKAN & BOLEH DIKLIK)
    ========================================== */
 header {
     background-color: var(--dark-teal);
     color: var(--white);
     position: sticky;
     top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    z-index: 99999; /* Nilai z-index tinggi supaya sentiasa di atas */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 
 .navbar, header nav {
@@ -60,6 +61,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    z-index: 100000;
 }
 
 .logo, header .logo {
@@ -74,6 +77,8 @@ header {
     display: flex;
     gap: 12px;
     align-items: center;
+    position: relative;
+    z-index: 100001;
 }
 
 .nav-links li a, header ul li a {
@@ -82,6 +87,8 @@ header {
     font-weight: 500;
     padding: 8px 16px;
     border-radius: 6px;
+    position: relative;
+    z-index: 100002; /* Memastikan pautan teks boleh diklik dengan selamat */
     transition: all 0.3s ease;
 }
 
@@ -89,7 +96,7 @@ header {
 .nav-links li a.active,
 header ul li a:hover,
 header ul li a.active {
-    background-color: #074c4f;
+    background-color: #004d4d;
     color: var(--white);
 }
 
@@ -120,7 +127,7 @@ section {
 
 section h1 {
     font-size: 2rem;
-    color: #074c4f;
+    color: #004d4d;
     margin-bottom: 20px;
     border-bottom: 2px solid var(--border-color);
     padding-bottom: 10px;
@@ -221,11 +228,11 @@ section ul li {
 }
 
 .btn-secondary {
-    background-color: #074c4f;
+    background-color: #004d4d;
 }
 
 .btn-secondary:hover {
-    background-color: #043235;
+    background-color: #003333;
 }
 
 /* ==========================================
@@ -256,7 +263,7 @@ tr:nth-child(even) {
 }
 
 /* ==========================================
-   8. PROJECTS PAGE (SEBIJI SEPERTI GAMBAR RUJUKAN)
+   8. PROJECTS PAGE (LAYOUT MELINTANG)
    ========================================== */
 article, .project-row-card {
     background: #ffffff;
@@ -310,48 +317,7 @@ article p strong {
 }
 
 /* ==========================================
-   9. CONTACT FORM
-   ========================================== */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-width: 600px;
-    margin-top: 15px;
-}
-
-form label {
-    font-weight: 600;
-    color: #074c4f;
-    margin-bottom: -10px;
-}
-
-form input,
-form textarea {
-    width: 100%;
-    padding: 12px 14px;
-    border: 1px solid #cbd5e1;
-    border-radius: 6px;
-    font-family: inherit;
-    font-size: 1rem;
-    background-color: #ffffff;
-    transition: border-color 0.3s ease;
-}
-
-form input:focus,
-form textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(0, 128, 128, 0.15);
-}
-
-form textarea {
-    min-height: 120px;
-    resize: vertical;
-}
-
-/* ==========================================
-   10. FOOTER & SCROLL TO TOP
+   9. FOOTER & SCROLL TO TOP
    ========================================== */
 footer {
     background-color: var(--dark-teal);
@@ -359,16 +325,14 @@ footer {
     text-align: center;
     padding: 20px;
     margin-top: auto;
+    position: relative;
+    z-index: 2;
 }
 
 footer a {
     color: #a5f3fc;
     text-decoration: none;
     font-weight: 600;
-}
-
-footer a:hover {
-    text-decoration: underline;
 }
 
 .top-btn, .scroll-top-btn {
@@ -382,11 +346,11 @@ footer a:hover {
     font-weight: bold;
     display: none;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-    z-index: 999;
+    z-index: 99999;
 }
 
 /* ==========================================
-   11. RESPONSIVE (Mobile & Tablet)
+   10. RESPONSIVE (Mobile & Tablet)
    ========================================== */
 @media (max-width: 1024px) {
     article, .project-row-card {
@@ -433,20 +397,5 @@ footer a:hover {
     .hero-image img {
         width: 190px;
         height: 190px;
-    }
-}
-
-@media (max-width: 480px) {
-    section {
-        padding: 20px;
-    }
-
-    .cta-buttons {
-        flex-direction: column;
-    }
-
-    .btn {
-        width: 100%;
-        text-align: center;
     }
 }
