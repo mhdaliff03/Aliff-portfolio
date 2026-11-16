@@ -4,17 +4,61 @@
 :root {
     --primary-color: #008080;      /* Teal UMPSA */
     --primary-hover: #006666;      /* Teal Gelap */
-    --dark-teal: #006666;          /* Hijau Teal Header & Footer */
+    --dark-teal: #006666;          
     --text-main: #1e293b;          
     --text-muted: #475569;         
     --bg-light: #f1f5f9;           
     --white: #ffffff;
+    --card-bg: rgba(255, 255, 255, 0.96);
     --border-color: #cbd5e1;
     --shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
 }
 
 /* ==========================================
-   2. RESET & SUSUN ATUR ASAS
+   2. DARK MODE STYLES
+   ========================================== */
+body.dark-mode {
+    --bg-light: #0f172a;           /* Biru Gelap Korporat */
+    --text-main: #f1f5f9;          /* Teks Putih Lembut */
+    --text-muted: #cbd5e1;         
+    --white: #1e293b;              
+    --card-bg: rgba(30, 41, 59, 0.95);
+    --border-color: #334155;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode section {
+    background: var(--card-bg);
+    color: var(--text-main);
+}
+
+body.dark-mode article, 
+body.dark-mode .project-row-card {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+body.dark-mode article h3,
+body.dark-mode article p strong,
+body.dark-mode th,
+body.dark-mode td {
+    color: #f1f5f9 !important;
+}
+
+body.dark-mode article p {
+    color: #cbd5e1;
+}
+
+body.dark-mode table {
+    background-color: #1e293b;
+}
+
+body.dark-mode tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* ==========================================
+   3. RESET & SUSUN ATUR ASAS
    ========================================== */
 * {
     margin: 0;
@@ -30,6 +74,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 main {
@@ -43,7 +88,7 @@ main {
 }
 
 /* ==========================================
-   3. HEADER & NAVIGATION BAR
+   4. HEADER & NAVIGATION BAR
    ========================================== */
 header {
     background-color: var(--dark-teal);
@@ -100,8 +145,25 @@ header ul li a.active {
     color: var(--white);
 }
 
+/* Butang Tukar Tema (Dark/Light Mode Button) */
+.theme-toggle-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: var(--white);
+    font-size: 1.1rem;
+    padding: 6px 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.35);
+    transform: scale(1.1);
+}
+
 /* ==========================================
-   4. BACKGROUND LOGO UMPSA TERANG (Semua Halaman)
+   5. BACKGROUND LOGO UMPSA TERANG
    ========================================== */
 main::before {
     content: "";
@@ -111,18 +173,19 @@ main::before {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 450px;
-    opacity: 0.15;
+    opacity: 0.12;
     pointer-events: none;
     z-index: -1;
 }
 
 section {
-    background: rgba(255, 255, 255, 0.96);
+    background: var(--card-bg);
     padding: 35px;
     border-radius: 12px;
     box-shadow: var(--shadow);
     margin-bottom: 30px;
     border-top: 4px solid var(--primary-color);
+    transition: background 0.3s ease;
 }
 
 section h1 {
@@ -131,6 +194,10 @@ section h1 {
     margin-bottom: 20px;
     border-bottom: 2px solid var(--border-color);
     padding-bottom: 10px;
+}
+
+body.dark-mode section h1 {
+    color: #5eead4;
 }
 
 section h2 {
@@ -156,7 +223,7 @@ section ul li {
 }
 
 /* ==========================================
-   5. HOME PAGE (HERO SECTION)
+   6. HOME PAGE (HERO SECTION)
    ========================================== */
 .hero-section {
     position: relative;
@@ -200,7 +267,7 @@ section ul li {
 }
 
 /* ==========================================
-   6. BUTANG (Buttons)
+   7. BUTANG (Buttons)
    ========================================== */
 .cta-buttons {
     display: flex;
@@ -236,7 +303,7 @@ section ul li {
 }
 
 /* ==========================================
-   7. SKILLS BADGES (Gaya Pil Moden)
+   8. SKILLS BADGES
    ========================================== */
 .skills-badges {
     display: flex;
@@ -256,6 +323,12 @@ section ul li {
     transition: all 0.3s ease;
 }
 
+body.dark-mode .badge {
+    background-color: rgba(94, 234, 212, 0.1);
+    color: #5eead4;
+    border-color: rgba(94, 234, 212, 0.3);
+}
+
 .badge:hover {
     background-color: var(--primary-color);
     color: var(--white);
@@ -263,7 +336,7 @@ section ul li {
 }
 
 /* ==========================================
-   8. JADUAL (Quick Highlights)
+   9. JADUAL (Quick Highlights)
    ========================================== */
 table {
     width: 100%;
@@ -290,10 +363,10 @@ tr:nth-child(even) {
 }
 
 /* ==========================================
-   9. PROJECTS PAGE (EFEK HOVER & ANIMASI KAD)
+   10. PROJECTS PAGE
    ========================================== */
 article, .project-row-card {
-    background: #ffffff;
+    background: var(--white);
     border: 1px solid var(--border-color);
     border-radius: 12px;
     padding: 25px 30px;
@@ -302,10 +375,9 @@ article, .project-row-card {
     display: flex;
     align-items: center;
     gap: 30px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Kesan transisi lancar */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Efek Hover Moden: Kad terapung dan bayang bertambah jelas */
 article:hover, .project-row-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 128, 128, 0.12);
@@ -333,26 +405,26 @@ article > div {
 article h3 {
     font-size: 1.15rem;
     font-weight: 700;
-    color: #1e293b;
+    color: var(--text-main);
     line-height: 1.4;
 }
 
 article p {
     font-size: 0.88rem;
-    color: #475569;
+    color: var(--text-muted);
     margin-bottom: 0;
     line-height: 1.5;
 }
 
 article p strong {
-    color: #1e293b;
+    color: var(--text-main);
     font-weight: 700;
     display: block;
     margin-bottom: 4px;
 }
 
 /* ==========================================
-   10. CONTACT FORM & DIRECT LINKS
+   11. CONTACT FORM
    ========================================== */
 form {
     display: flex;
@@ -368,15 +440,20 @@ form label {
     font-size: 0.95rem;
 }
 
+body.dark-mode form label {
+    color: #5eead4;
+}
+
 form input,
 form textarea {
     width: 100%;
     padding: 12px 14px;
-    border: 1px solid #cbd5e1;
+    border: 1px solid var(--border-color);
     border-radius: 6px;
     font-family: inherit;
     font-size: 1rem;
-    background-color: #ffffff;
+    background-color: var(--white);
+    color: var(--text-main);
     transition: border-color 0.3s ease;
 }
 
@@ -393,7 +470,7 @@ form textarea {
 }
 
 /* ==========================================
-   11. FOOTER & SCROLL TO TOP
+   12. FOOTER & SCROLL TO TOP
    ========================================== */
 footer {
     background-color: var(--dark-teal);
@@ -426,7 +503,7 @@ footer a {
 }
 
 /* ==========================================
-   12. RESPONSIVE (Mobile & Tablet)
+   13. RESPONSIVE (Mobile & Tablet)
    ========================================== */
 @media (max-width: 1024px) {
     article, .project-row-card {
