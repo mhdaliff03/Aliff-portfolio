@@ -75,3 +75,57 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+// Fungsi Masa Malaysia & Ucapan Automatik (Greeting + Live Clock)
+function updateMalaysiaTimeAndGreeting() {
+    const greetingEl = document.getElementById('greeting');
+    const dateTimeEl = document.getElementById('malaysia-datetime');
+
+    // Jika bukan di halaman Home, hentikan fungsi ini
+    if (!greetingEl && !dateTimeEl) return;
+
+    const now = new Date();
+
+    // 1. Dapatkan jam semasa mengikut zon masa Malaysia (0 - 23)
+    const hourString = new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'Asia/Kuala_Lumpur',
+        hour: '2-digit',
+        hour12: false
+    }).format(now);
+    const hour = parseInt(hourString, 10);
+
+    // 2. Tentukan ucapan (Pagi, Tengah Hari, Petang/Malam)
+    let greetingText = 'Good Evening!';
+    if (hour >= 5 && hour < 12) {
+        greetingText = 'Good Morning!';
+    } else if (hour >= 12 && hour < 18) {
+        greetingText = 'Good Afternoon!';
+    } else {
+        greetingText = 'Good Evening!';
+    }
+
+    if (greetingEl) {
+        greetingEl.textContent = greetingText;
+    }
+
+    // 3. Formatkan Hari, Tarikh & Masa Malaysia (Live Clock)
+    if (dateTimeEl) {
+        const options = {
+            timeZone: 'Asia/Kuala_Lumpur',
+            weekday: 'long',
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: true
+        };
+        const formattedTime = new Intl.DateTimeFormat('en-MY', options).format(now);
+        dateTimeEl.textContent = `${formattedTime} (MYT)`;
+    }
+}
+
+// Jalankan fungsi serta-merta bila halaman dibuka, dan kemas kini setiap 1 saat
+updateMalaysiaTimeAndGreeting();
+setInterval(updateMalaysiaTimeAndGreeting, 1000);
