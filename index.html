@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Muhammad Aliff Portfolio</title>
+    <title>Skills - Muhammad Aliff Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -13,9 +13,9 @@
         <nav class="navbar">
             <div class="logo">MyPortfolio</div>
             <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Me</a></li>
-                <li><a href="skills.html">Skills</a></li>
+                <li><a href="skills.html" class="active">Skills</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -24,53 +24,30 @@
 
     <!-- Main Content -->
     <main>
-        <section class="hero-section">
-            <div class="hero-content">
-                <h1 id="greeting">Good Evening!</h1>
-                <p id="malaysia-datetime" style="font-weight: 600; color: #008080; margin-bottom: 10px;"></p>
-                <h2 style="font-size: 1.5rem; color: #074c4f; margin-bottom: 15px;">I am Muhammad Aliff</h2>
-                <p class="tagline">Aspiring Industrial Electronics Technologist</p>
-                <p class="intro-desc">
-                    Welcome to my professional portfolio website showcasing my engineering skills, academic projects, and industrial journey at UMPSA.
-                </p>
-                <div class="cta-buttons">
-                    <a href="projects.html" class="btn btn-primary">View My Work</a>
-                    <a href="docs/resume.pdf" class="btn btn-secondary" target="_blank">Download CV</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="images/profile.jpg" alt="Muhammad Aliff Profile Photo">
-            </div>
-        </section>
-
-        <!-- Quick Highlights Section -->
         <section>
-            <h2 style="margin-bottom: 20px; color: #074c4f;">Quick Highlights</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Category</th>
-                        <th>Details</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td style="font-weight: 500;">Projects Completed</td>
-                        <td>3+ Major Engineering & Web Projects</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Certificates & Training</td>
-                        <td>PLC Programming, Automation & Safety Certified</td>
-                    </tr>
-                </tbody>
-            </table>
+            <h1>My Skills</h1>
+            
+            <h2>Technical Skills</h2>
+            <div class="skills-badges">
+                <span class="badge">HTML5 / CSS3 / JavaScript (85%)</span>
+                <span class="badge">PLC Programming & Ladder Logic - CX-Programmer (80%)</span>
+                <span class="badge">IoT Microcontroller - ESP32 & Arduino IDE (80%)</span>
+                <span class="badge">Circuit Design & AutoCAD Technical Drawing (75%)</span>
+            </div>
+
+            <h2 style="margin-top: 35px;">Soft Skills & Languages</h2>
+            <ul>
+                <li><strong>Effective Communication & Technical Reporting</strong></li>
+                <li><strong>Team Collaboration & Leadership in Group Projects</strong></li>
+                <li><strong>Problem Solving & Analytical Troubleshooting</strong></li>
+                <li><strong>Languages:</strong> Bahasa Melayu (Native), English (Professional Working Proficiency)</li>
+            </ul>
         </section>
     </main>
 
     <!-- Footer -->
     <footer>
         <p>&copy; <span class="current-year">2026</span> Muhammad Aliff. All Rights Reserved. | <a href="mailto:muhammadaliffmohdrburhan@gmail.com">Email Me</a></p>
-        <button id="scrollTopBtn" class="top-btn">&#8593; Top</button>
     </footer>
 
     <script src="js/script.js"></script>

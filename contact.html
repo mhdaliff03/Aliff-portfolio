@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Me - Muhammad Aliff</title>
+    <title>Contact - Muhammad Aliff Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+    <!-- Header & Navigation Bar -->
     <header>
-        <nav>
+        <nav class="navbar">
             <div class="logo">MyPortfolio</div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -20,40 +22,51 @@
         </nav>
     </header>
 
+    <!-- Main Content -->
     <main>
-        <section class="contact-section">
+        <section>
             <h1>Contact Me</h1>
             <p>Have a question, internship opportunity, or project proposal? Send me a message below or connect via email and LinkedIn!</p>
 
-            <form id="contactForm">
-                <label for="name">Full Name:</label>
-                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            <form>
+                <div style="display: flex; gap: 20px;">
+                    <div style="flex: 1; display: flex; flex-direction: column; gap: 5px;">
+                        <label>Full Name:</label>
+                        <input type="text" placeholder="Enter your full name" required>
+                    </div>
+                    <div style="flex: 1; display: flex; flex-direction: column; gap: 5px;">
+                        <label>Email Address:</label>
+                        <input type="email" placeholder="Enter your email address" required>
+                    </div>
+                </div>
+                
+                <div style="display: flex; flex-direction: column; gap: 5px; margin-top: 10px;">
+                    <label>Subject:</label>
+                    <input type="text" placeholder="Subject of your message" required>
+                </div>
 
-                <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                <div style="display: flex; flex-direction: column; gap: 5px; margin-top: 10px;">
+                    <label>Message:</label>
+                    <textarea placeholder="Write your message here..." required></textarea>
+                </div>
 
-                <label for="subject">Subject:</label>
-                <input type="text" id="subject" name="subject" placeholder="Subject of your message" required>
-
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
-
-                <button type="submit" class="btn">Send Message</button>
+                <button type="submit" class="btn" style="margin-top: 10px; width: fit-content;">Send Message</button>
             </form>
 
-            <article class="contact-info" style="margin-top: 30px;">
-                <h3>Direct Links</h3>
-                <ul>
-                    <li><strong>Email:</strong> <a href="mailto:muhammadaliffmohdburhan@gmail.com">muhammadaliffmohdburhan@gmail.com</a></li>
-                    <li><strong>LinkedIn:</strong> <a href="https://linkedin.com" target="_blank">linkedin.com/in/muhammad-aliff</a></li>
-                    <li><strong>Location:</strong> Melaka / Pekan, Pahang, Malaysia</li>
+            <div style="margin-top: 35px; border-top: 1px solid var(--border-color); padding-top: 20px;">
+                <h3 style="color: #004d4d; margin-bottom: 12px;">Direct Links</h3>
+                <ul style="list-style: none; margin-left: 0; display: flex; flex-direction: column; gap: 10px;">
+                    <li><strong>✉️ Email:</strong> <a href="mailto:muhammadaliffmohdrburhan@gmail.com" style="color: var(--primary-color); text-decoration: none;">muhammadaliffmohdrburhan@gmail.com</a></li>
+                    <li><strong>🔗 LinkedIn:</strong> <a href="https://linkedin.com/in/muhammad-aliff" target="_blank" style="color: var(--primary-color); text-decoration: none;">linkedin.com/in/muhammad-aliff</a></li>
+                    <li><strong>📍 Location:</strong> Melaka / Pekan, Pahang, Malaysia</li>
                 </ul>
-            </article>
+            </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; <span class="current-year">2026</span> Muhammad Aliff. All Rights Reserved. | <a href="mailto:muhammadaliffmohdburhan@gmail.com" class="footer-link">Email Me</a></p>
+        <p>&copy; <span class="current-year">2026</span> Muhammad Aliff. All Rights Reserved. | <a href="mailto:muhammadaliffmohdrburhan@gmail.com">Email Me</a></p>
     </footer>
 
     <script src="js/script.js"></script>

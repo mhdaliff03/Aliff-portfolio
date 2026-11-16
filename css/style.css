@@ -39,18 +39,18 @@ main {
     margin: 30px auto;
     padding: 0 20px;
     position: relative;
-    z-index: 1; /* Pastikan kandungan utama berada di bawah header */
+    z-index: 1;
 }
 
 /* ==========================================
-   3. HEADER & NAVIGATION BAR (DIAMANKAN & BOLEH DIKLIK)
+   3. HEADER & NAVIGATION BAR
    ========================================== */
 header {
     background-color: var(--dark-teal);
     color: var(--white);
     position: sticky;
     top: 0;
-    z-index: 99999; /* Nilai z-index tinggi supaya sentiasa di atas */
+    z-index: 99999;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 
@@ -88,7 +88,7 @@ header {
     padding: 8px 16px;
     border-radius: 6px;
     position: relative;
-    z-index: 100002; /* Memastikan pautan teks boleh diklik dengan selamat */
+    z-index: 100002;
     transition: all 0.3s ease;
 }
 
@@ -236,7 +236,34 @@ section ul li {
 }
 
 /* ==========================================
-   7. JADUAL (Quick Highlights)
+   7. SKILLS BADGES (Gaya Pil Moden)
+   ========================================== */
+.skills-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.badge {
+    background-color: rgba(0, 128, 128, 0.08);
+    color: #004d4d;
+    border: 1px solid rgba(0, 128, 128, 0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.badge:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   8. JADUAL (Quick Highlights)
    ========================================== */
 table {
     width: 100%;
@@ -263,7 +290,7 @@ tr:nth-child(even) {
 }
 
 /* ==========================================
-   8. PROJECTS PAGE (LAYOUT MELINTANG)
+   9. PROJECTS PAGE (EFEK HOVER & ANIMASI KAD)
    ========================================== */
 article, .project-row-card {
     background: #ffffff;
@@ -275,6 +302,14 @@ article, .project-row-card {
     display: flex;
     align-items: center;
     gap: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Kesan transisi lancar */
+}
+
+/* Efek Hover Moden: Kad terapung dan bayang bertambah jelas */
+article:hover, .project-row-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 128, 128, 0.12);
+    border-color: var(--primary-color);
 }
 
 article img, .project-row-card img {
@@ -317,7 +352,48 @@ article p strong {
 }
 
 /* ==========================================
-   9. FOOTER & SCROLL TO TOP
+   10. CONTACT FORM & DIRECT LINKS
+   ========================================== */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 700px;
+    margin-top: 15px;
+}
+
+form label {
+    font-weight: 600;
+    color: #004d4d;
+    font-size: 0.95rem;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: #ffffff;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 128, 128, 0.15);
+}
+
+form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* ==========================================
+   11. FOOTER & SCROLL TO TOP
    ========================================== */
 footer {
     background-color: var(--dark-teal);
@@ -350,7 +426,7 @@ footer a {
 }
 
 /* ==========================================
-   10. RESPONSIVE (Mobile & Tablet)
+   12. RESPONSIVE (Mobile & Tablet)
    ========================================== */
 @media (max-width: 1024px) {
     article, .project-row-card {
