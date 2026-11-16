@@ -264,26 +264,56 @@ tr:nth-child(even) {
 /* ==========================================
    8. PROJECTS PAGE (Kad Projek)
    ========================================== */
+/* ==========================================
+   8. PROJECTS PAGE (Kad Projek Sebaris)
+   ========================================== */
+.projects-container, main {
+    /* Pastikan kontena projek fleksibel */
+}
+
 article {
     background: #ffffff;
     border: 1px solid var(--border-color);
     border-radius: 10px;
-    padding: 25px;
+    padding: 30px;
     margin-bottom: 25px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;          /* Susun gambar dan teks sebaris */
+    align-items: center;    /* Pusatkan secara menegak */
+    gap: 30px;              /* Jarak antara gambar dan teks */
 }
 
+/* Bahagian Gambar Projek (Kiri) */
 article img {
-    width: 100%;
-    max-width: 550px;
-    height: 300px;
+    width: 40%;             /* Ambil 40% lebar kad */
+    min-width: 280px;
+    height: 220px;          /* Tetapkan tinggi yang seragam & kemas */
     object-fit: cover;
     border-radius: 8px;
-    margin-bottom: 15px;
-    display: block;
+    margin-bottom: 0;       /* Buang margin bawah lama */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    flex-shrink: 0;
 }
 
+/* Bahagian Teks Penerangan Projek (Kanan) */
+article .project-info, 
+article > div:not(img),
+article div {
+    flex: 1;                /* Ambil baki ruang sebelah kanan */
+}
+
+/* Responsif untuk Telefon Bimbit (Supaya turun ke bawah semula jika skrin kecil) */
+@media (max-width: 768px) {
+    article {
+        flex-direction: column; /* Tukar jadi menegak semula pada skrin telefon */
+        align-items: stretch;
+    }
+    
+    article img {
+        width: 100%;
+        height: 200px;
+    }
+}
 /* ==========================================
    9. CONTACT FORM
    ========================================== */
