@@ -4,14 +4,13 @@
 :root {
     --primary-color: #008080;      /* Teal UMPSA */
     --primary-hover: #006666;      /* Teal Gelap */
-    --accent-gold: #f59e0b;        
-    --dark-navy: #006666;          /* Hijau/Teal UMPSA untuk Header & Footer */
+    --dark-teal: #0b666a;          /* Hijau Teal Header seperti dalam gambar */
     --text-main: #1e293b;          
     --text-muted: #475569;         
     --bg-light: #f1f5f9;           
     --white: #ffffff;
-    --border-color: #cbd5e1;
-    --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --border-color: #e2e8f0;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
 }
 
 /* ==========================================
@@ -36,25 +35,26 @@ body {
 main {
     flex: 1;
     width: 100%;
-    max-width: 1100px;
+    max-width: 1200px; /* Lebar sedikit luas supaya 5 lajur teks projek nampak lega & sebiji seperti gambar */
     margin: 30px auto;
     padding: 0 20px;
+    position: relative;
 }
 
 /* ==========================================
    3. HEADER & NAVIGATION BAR
    ========================================== */
 header {
-    background-color: var(--dark-navy);
+    background-color: var(--dark-teal);
     color: var(--white);
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 
 .navbar, header nav {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 15px 20px;
     display: flex;
@@ -72,7 +72,7 @@ header {
 .nav-links, header ul {
     list-style: none;
     display: flex;
-    gap: 15px;
+    gap: 12px;
     align-items: center;
 }
 
@@ -80,7 +80,7 @@ header {
     color: #e2e8f0;
     text-decoration: none;
     font-weight: 500;
-    padding: 8px 14px;
+    padding: 8px 16px;
     border-radius: 6px;
     transition: all 0.3s ease;
 }
@@ -89,18 +89,13 @@ header {
 .nav-links li a.active,
 header ul li a:hover,
 header ul li a.active {
-    background-color: #004d4d;
+    background-color: #074c4f;
     color: var(--white);
 }
 
 /* ==========================================
    4. BACKGROUND LOGO UMPSA TERANG (Semua Halaman)
    ========================================== */
-body, main {
-    position: relative;
-}
-
-/* Watermark Logo UMPSA yang lebih terang pada semua halaman */
 main::before {
     content: "";
     position: fixed;
@@ -115,7 +110,7 @@ main::before {
 }
 
 section {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.96);
     padding: 35px;
     border-radius: 12px;
     box-shadow: var(--shadow);
@@ -125,8 +120,8 @@ section {
 
 section h1 {
     font-size: 2rem;
-    color: #004d4d;
-    margin-bottom: 15px;
+    color: #074c4f;
+    margin-bottom: 20px;
     border-bottom: 2px solid var(--border-color);
     padding-bottom: 10px;
 }
@@ -163,7 +158,6 @@ section ul li {
     justify-content: space-between;
     gap: 40px;
     padding: 50px 40px;
-    background: rgba(255, 255, 255, 0.96);
 }
 
 .hero-content {
@@ -227,11 +221,11 @@ section ul li {
 }
 
 .btn-secondary {
-    background-color: #004d4d;
+    background-color: #074c4f;
 }
 
 .btn-secondary:hover {
-    background-color: #003333;
+    background-color: #043235;
 }
 
 /* ==========================================
@@ -262,79 +256,57 @@ tr:nth-child(even) {
 }
 
 /* ==========================================
-   8. PROJECTS PAGE (Gambar di Atas, Teks di Bawah)
+   8. PROJECTS PAGE (SEBIJI SEPERTI GAMBAR RUJUKAN)
    ========================================== */
-/* ==========================================
-   8. PROJECTS PAGE (Susun Atur Melintang / Sebaris)
-   ========================================== */
-article {
+article, .project-row-card {
     background: #ffffff;
     border: 1px solid var(--border-color);
-    border-radius: 10px;
-    padding: 30px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    display: flex;          /* Susun elemen secara melintang */
-    align-items: center;    /* Pusatkan item secara menegak */
-    gap: 30px;              /* Jarak antara gambar dan lajur teks */
+    border-radius: 12px;
+    padding: 25px 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    display: flex;
+    align-items: center;
+    gap: 30px;
 }
 
-/* Gambar Projek (Sebelah Kiri) */
-article img {
-    width: 38%;             /* Tetapkan lebar gambar */
-    height: 220px;
+article img, .project-row-card img {
+    width: 340px;
+    height: 210px;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 10px;
     flex-shrink: 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Bahagian Maklumat Lajur Teks (Sebelah Kanan) */
-article .project-info,
-article div {
+article .project-columns,
+article > div {
     flex: 1;
     display: grid;
-    grid-template-columns: 1.2fr 1.5fr 1fr 1.2fr 1.5fr; /* Bahagikan kepada 5 lajur melintang */
-    gap: 15px;
-    align-items: start;
+    grid-template-columns: 1.1fr 1.4fr 1.1fr 1.2fr 1.4fr;
+    gap: 18px;
+    align-items: center;
 }
 
-/* Gaya Tajuk & Teks dalam Lajur */
 article h3 {
     font-size: 1.15rem;
-    color: var(--dark-navy);
-    line-height: 1.3;
+    font-weight: 700;
+    color: #1e293b;
+    line-height: 1.4;
 }
 
 article p {
     font-size: 0.88rem;
-    color: var(--text-muted);
+    color: #475569;
     margin-bottom: 0;
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
 article p strong {
-    color: #004d4d;
+    color: #1e293b;
+    font-weight: 700;
     display: block;
-    margin-bottom: 3px;
-}
-
-/* Responsif untuk Mobile (Tukar jadi menegak jika skrin kecil) */
-@media (max-width: 992px) {
-    article {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    article img {
-        width: 100%;
-        height: 220px;
-    }
-    article .project-info,
-    article div {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
+    margin-bottom: 4px;
 }
 
 /* ==========================================
@@ -350,7 +322,7 @@ form {
 
 form label {
     font-weight: 600;
-    color: #004d4d;
+    color: #074c4f;
     margin-bottom: -10px;
 }
 
@@ -382,7 +354,7 @@ form textarea {
    10. FOOTER & SCROLL TO TOP
    ========================================== */
 footer {
-    background-color: var(--dark-navy);
+    background-color: var(--dark-teal);
     color: #e2e8f0;
     text-align: center;
     padding: 20px;
@@ -416,6 +388,26 @@ footer a:hover {
 /* ==========================================
    11. RESPONSIVE (Mobile & Tablet)
    ========================================== */
+@media (max-width: 1024px) {
+    article, .project-row-card {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    article img, .project-row-card img {
+        width: 100%;
+        height: 240px;
+    }
+
+    article .project-columns,
+    article > div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+
 @media (max-width: 768px) {
     .navbar, header nav {
         flex-direction: column;
